@@ -13,7 +13,7 @@ const htmlFiles = fs.readdirSync('src')
   .filter(file => file.slice(-5) === '.html')
   .map((file) => {
     return new HtmlWebpackPlugin({
-      template: 'src/' + file,
+      template: '!!underscore-template-loader!src/' + file,
       filename: file,
       inject: false,
       minify: false
