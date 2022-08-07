@@ -1,23 +1,21 @@
 {
   "name": "tailwind-html-template",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "devDependencies": {
-    "autoprefixer": "^9.8.5",
-    "browser-sync": "2.26.7",
-    "cross-env": "^7.0.2",
-    "html-webpack-plugin": "^4.3.0",
-    "laravel-mix": "^5.0.4",
-    "tailwindcss": "^1.5.1",
-    "underscore-template-loader": "^1.1.0",
-    "vue-template-compiler": "^2.6.11"
+    "autoprefixer": "^10.4.8",
+    "browser-sync": "2.27.10",
+    "html-webpack-plugin": "^5.5.0",
+    "laravel-mix": "^6.0.49",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8",
+    "underscore-template-loader": "^1.1.0"
   },
   "scripts": {
-    "prod": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "cross-env NODE_ENV=watch node_modules/webpack/bin/webpack.js --progress --hide-modules --watch --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "production": "npm run production",
-    "development": "npm run dev",
-    "serve": "npm run watch"
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "production": "mix --production",
+    "serve": "mix watch"
   }
 }

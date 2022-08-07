@@ -3,7 +3,7 @@ const fs = require('fs');
 const bs = require('browser-sync').create();
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-if (process.env.NODE_ENV === 'watch') {
+if (process.env.npm_lifecycle_event === 'watch') {
   bs.watch('dist/*.html').on('change', bs.reload);
   bs.watch('dist/css/*.css').on('change', bs.reload);
   bs.watch('dist/js/*.js').on('change', bs.reload);
@@ -33,10 +33,10 @@ mix
   .webpackConfig({
     plugins: htmlFiles
   }).then(() => {
-    if (process.env.NODE_ENV === 'watch') {
-      bs.init({server: "dist"});
+    if (process.env.npm_lifecycle_event === 'watch') {
+      bs.init({server: 'dist'}, () => {});
     }
   });
 
 // Disable mix-manifest.json generation.
-Mix.manifest.refresh = _ => void 0
+Mix.manifest.refresh = _ => void 0;
